@@ -9,7 +9,7 @@ namespace TEams
         {
             // create some departments
             CreateDepartments();
-
+            
             // print each department by name
             PrintDepartments();
 
