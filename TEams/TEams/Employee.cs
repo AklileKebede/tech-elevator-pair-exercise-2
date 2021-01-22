@@ -31,6 +31,15 @@ namespace TEams
         }
         public Employee() { }
 
+        public double RaiseSalary()
+        {
+            // salary = salary + (raiseSalary * percent to raise)
+            double raisePercent = 0;
+
+            this.Salary = this.Salary + (this.Salary * raisePercent / 100);
+
+            return this.Salary;
+        }
 
     }
 }
