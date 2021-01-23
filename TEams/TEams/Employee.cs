@@ -10,7 +10,7 @@ namespace TEams
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public double Salary { get; set; } = 60000.0;
+        public double Salary { get; set; }
         public Department Department { get; set; }
         public string HireDate { get; set; }
         public string FullName
@@ -28,14 +28,14 @@ namespace TEams
             this.Email = email;
             this.Department = department;
             this.HireDate = hireDate;
+            this.Salary = 60000.0;
         }
         public Employee() { }
 
-        public double RaiseSalary()
+        public double RaiseSalary(double raisePercent)
         {
             // salary = salary + (raiseSalary * percent to raise)
-            double raisePercent = 0;
-
+            
             this.Salary = this.Salary + (this.Salary * raisePercent / 100);
 
             return this.Salary;
