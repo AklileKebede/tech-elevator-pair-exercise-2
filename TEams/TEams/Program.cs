@@ -11,6 +11,10 @@ namespace TEams
         public static List<Department> departments= new List<Department> ();
 
         public static List<Employee> employees = new List<Employee>();
+        //Create an instance variable in the Program class called projects to hold a collection of projects. 
+        //The variable must be of type Dictionary<string,Project> where the key is the name of the project. 
+        //Declare it static so it can be accessed in the static methods in Program.cs.
+        public static Dictionary<string, Project> projects = new Dictionary<string, Project>();
         static void Main(string[] args)
         {
             // create some departments
@@ -112,6 +116,18 @@ namespace TEams
          */
         private static void CreateTeamsProject()
         {
+            // Project(string name, string description, string startDate, string dueDate)
+            Project projectTeams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
+           // projectTEams.TeamMembers(departments[2]);
+            //Add all the employees from the engineering(departments[2]) department to projectTEams.//TODO!
+            
+            //this.TeamMembers = new List<Employee>();
+           // departments.Add(departments[2]);
+            
+           //Add the project to the projects dictionary.
+           projects["TEams"] = projectTeams;
+
+            projects["TEams"]= TeamMembers
 
         }
 
@@ -120,7 +136,11 @@ namespace TEams
          */
         private static void CreateLandingPageProject()
         {
-
+            Project landingPageProject = new Project("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "11/17/2020");
+            // Add all the employees from the marketing department to this project.
+          //  landingPageProject.TeamMembers = departments.Add(departments[1]);//TODO!!
+            //Add the project to the projects dictionary.
+            projects["Marketing Landing Page"] = landingPageProject;
         }
 
         /**
@@ -129,7 +149,11 @@ namespace TEams
         private static void PrintProjectsReport()
         {
             Console.WriteLine("\n------------- PROJECTS ------------------------------");
-
+            // print out the project's name with the total number of employees on the project
+            foreach (KeyValuePair<string,Project> kvp in projects)
+            {
+                Console.WriteLine(kvp.Key + ": " + kvp.Value.TeamMembers.Count);
+            }
         }
     }
 }
