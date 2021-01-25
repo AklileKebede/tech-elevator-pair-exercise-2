@@ -118,16 +118,23 @@ namespace TEams
         {
             // Project(string name, string description, string startDate, string dueDate)
             Project projectTeams = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
-           // projectTEams.TeamMembers(departments[2]);
+            // projectTEams.TeamMembers(departments[2]);
             //Add all the employees from the engineering(departments[2]) department to projectTEams.//TODO!
-            
-            //this.TeamMembers = new List<Employee>();
-           // departments.Add(departments[2]);
-            
-           //Add the project to the projects dictionary.
-           projects["TEams"] = projectTeams;
+            foreach (Employee employee in employees)
+            {
+                if (employee.Department.DepartmentId == 003)
+                {
+                    projectTeams.TeamMembers.Add(employee);
 
-            projects["TEams"]= TeamMembers
+                }
+                
+                
+            }
+            
+          //  Add the project to the projects dictionary.
+            projects["TEams"] = projectTeams;
+
+            
 
         }
 
@@ -138,7 +145,17 @@ namespace TEams
         {
             Project landingPageProject = new Project("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "11/17/2020");
             // Add all the employees from the marketing department to this project.
-          //  landingPageProject.TeamMembers = departments.Add(departments[1]);//TODO!!
+            foreach (Employee employee in employees)
+            {
+                if (employee.Department.DepartmentId == 001)
+                {
+                    landingPageProject.TeamMembers.Add(employee);
+
+                }
+
+
+            }
+
             //Add the project to the projects dictionary.
             projects["Marketing Landing Page"] = landingPageProject;
         }
